@@ -31,6 +31,7 @@ def fetch_inventory():
 @app.route('/inventory', methods=['GET'])
 def get_all_items():
     return jsonify({'inventory': inventory}), 200
+
 #get a single item
 @app.route('/inventory/<int:id>', methods=['GET'])
 def get_item(id):
@@ -38,6 +39,7 @@ def get_item(id):
     if item:
         return jsonify({'item': item}), 200
     return jsonify({'error': 'Item not found'}), 404
+
 #create a new item
 @app.route('/inventory', methods=['POST'])
 def create_item():
@@ -46,6 +48,8 @@ def create_item():
     item = {'id': len(inventory) + 1, 'name': name, 'price': price}
     inventory.append(item)
     return jsonify({'item': item}), 201
+
+
 #update an item
 @app.route('/inventory/<int:id>', methods=['PATCH'])
 def update_item(id):
@@ -55,6 +59,8 @@ def update_item(id):
         item['price'] = request.json['price']
         return jsonify({'item': item}), 200
     return jsonify({'error': 'Item not found'}), 404
+
+    
 #delete an item
 @app.route('/inventory/<int:id>', methods=['DELETE'])
 def delete_item(id):
@@ -64,7 +70,8 @@ def delete_item(id):
         return jsonify({'message': 'Item deleted'}), 200
     return jsonify({'error': 'Item not found'}), 404
 
+# Calling our fetch_inventory function to populate the list on startup
+fetch_inventory()
+
 if __name__ == '__main__':
-    #calling our fetch_inventory function to get our inventory
-    fetch_inventory()
     app.run(debug=True, port=5000)
