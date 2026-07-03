@@ -28,6 +28,17 @@ def main():
                 print(item)
             else:
                 print("Item not found.")
+        if choice == "3":
+            name = input("Enter item name: ")
+            price = input("Enter item price: ")
+            item = create_item(name, price)
+            if item:
+                print(item)
+            else:
+                print("Item not created.")
+
+        
+
         
 
 
