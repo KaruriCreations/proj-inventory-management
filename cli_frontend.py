@@ -45,6 +45,15 @@ def main():
                 print(item)
             else:
                 print("Item not updated.")
+        if choice == "5":
+            id = input("Enter item ID: ")
+            item = delete_item(id)
+            if item:
+                print(f"{item} has been deleted successfully")
+            else:
+                print("Item not deleted.")
+        if choice == "6":
+            break
 
         
 
