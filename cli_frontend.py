@@ -36,6 +36,15 @@ def main():
                 print(item)
             else:
                 print("Item not created.")
+        if choice == "4":
+            id = input("Enter item ID: ")
+            name = input("Enter item name: ")
+            price = input("Enter item price: ")
+            item = update_item(id, name, price)
+            if item:
+                print(item)
+            else:
+                print("Item not updated.")
 
         
 
