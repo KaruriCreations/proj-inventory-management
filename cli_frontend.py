@@ -14,6 +14,14 @@ def main():
     while True:
         show_menu()
         choice = input("Choose a number between 1 and 6: ")
+        if choice == "1":
+            items = get_all_items()
+            if not items:
+                print("No items found.")
+            else:
+                for item in items:
+                    print(item)
+        
 
 
 
