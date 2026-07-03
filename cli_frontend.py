@@ -21,6 +21,13 @@ def main():
             else:
                 for item in items:
                     print(item)
+        if choice == "2":
+            id = input("Enter item ID: ")
+            item = get_item(id)
+            if item:
+                print(item)
+            else:
+                print("Item not found.")
         
 
 
