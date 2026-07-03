@@ -9,7 +9,12 @@ def show_menu():
     print("4. Update an item")
     print("5. Delete an item")
     print("6. Exit")
-    
+
+def main():
+    while True:
+        show_menu()
+        choice = input("Choose a number between 1 and 6: ")
+
 
 
 
