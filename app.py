@@ -23,5 +23,14 @@ def create_item():
     inventory.append(item)
     return jsonify({'item': item}), 201
 
+@app.route('/inventory/<int:id>', methods=['PATCH'])
+def update_item(id):
+    item = next((item for item in inventory if item['id'] == id), None)
+    if item:
+        item['name'] = request.json['name']
+        item['price'] = request.json['price']
+        return jsonify({'item': item}), 200
+    return jsonify({'error': 'Item not found'}), 404
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
