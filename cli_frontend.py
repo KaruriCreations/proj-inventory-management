@@ -3,7 +3,7 @@ import requests
 API_URL = "http://127.0.0.1:5000/inventory"
 
 def show_menu():
-    print("\n=== Inventory Management System ===")
+    print("\n=== Inventory Management System by KARURI ===")
     print("1. Show all items")
     print("2. Show an item")
     print("3. Create an item")
