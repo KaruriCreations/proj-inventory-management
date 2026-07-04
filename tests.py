@@ -8,7 +8,9 @@ def client():
         yield client
 
 def test_get_all_items(client):
-    pass
+    response = client.get('/inventory')
+    assert response.status_code == 200
+    assert isinstance(response.json['inventory'], list)
 
 def test_get_item(client):
     pass
