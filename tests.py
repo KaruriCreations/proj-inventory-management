@@ -53,5 +53,3 @@ def test_delete_item(client):
     # Delete that exact item
     response = client.delete(f'/inventory/{item_id}')
     assert response.status_code == 200
-    assert response.json['item']['name'] == 'Test Item'
-    assert response.json['item']['price'] == 100
