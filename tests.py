@@ -26,7 +26,10 @@ def test_get_item(client):
 
 
 def test_create_item(client):
-    pass
+    response = client.post('/inventory', json={'name': 'Test Item', 'price': 100})
+    assert response.status_code == 201
+    assert response.json['item']['name'] == 'Test Item'
+    assert response.json['item']['price'] == 100
 
 def test_update_item(client):
     pass
