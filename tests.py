@@ -45,4 +45,13 @@ def test_update_item(client):
     
 
 def test_delete_item(client):
-    pass
+    # Add a dummy item to the inventory and grab its ID
+    post_res = client.post('/inventory', json={'name': 'Test Item', 'price': 100})
+    assert post_res.status_code == 201
+    item_id = post_res.json['item']['id']
+
+    # Delete that exact item
+    response = client.delete(f'/inventory/{item_id}')
+    assert response.status_code == 200
+    assert response.json['item']['name'] == 'Test Item'
+    assert response.json['item']['price'] == 100
